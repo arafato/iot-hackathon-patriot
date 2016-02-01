@@ -1,6 +1,18 @@
 <h2>Home</h2>
 
 <p data-bind='text: message'></p>
-<img data-bind="attr:{src: product_image_url}" />
+
+
+<div class="media">
+  <div class="pull-left media-left media-middle">
+    <a href="#">
+      <img height="200" class="media-object" data-bind="attr:{src: product_image_url}" />
+    </a>
+  </div>
+  <div class="media-body">
+    <h4 class="media-heading" data-bind='text:product_name'></h4>
+    <p data-bind='text:product_description'></p>
+  </div>
+</div>
 
 <button data-bind='click: doSomething'>Click me</button>

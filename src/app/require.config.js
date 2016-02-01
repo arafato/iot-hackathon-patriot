@@ -10,7 +10,7 @@ var require = {
         "knockout-projections": "bower_modules/knockout-projections/dist/knockout-projections",
         "signals":              "bower_modules/js-signals/dist/signals.min",
         "text":                 "bower_modules/requirejs-text/text",
-        "aws-sdk":              "bower_modules/aws-sdk/dist/aws-sdk.min"
+        "aws-sdk":              "bower_modules/aws-sdk-js/dist/aws-sdk.min"
     },
     shim: {
         "bootstrap": { deps: ["jquery"] }

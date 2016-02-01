@@ -10,8 +10,10 @@ class HomeViewModel {
     }
 
     doSomething() {
-        this.message('You invoked doSomething() on the viewmodel.');
-        this.product_image_url('http://4vector.com/thumb_data/v4l-128794.jpg');
+        this.message('Look, it changed!');
+        this.product_image_url('https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcRYP1k0bHJwXyVpXn5d1PzHWHtcfjAOUt5hGWxFW91W9d18IXgJ');
+        this.product_name('Happy Whine');
+        this.product_description('If you whine a lot then you will love Happy Whine.  It pairs well with peanuts and orange juice')
     }
 }
 
