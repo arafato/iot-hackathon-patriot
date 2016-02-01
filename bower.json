@@ -10,7 +10,8 @@
     "requirejs-text": "~2.0.10",
     "knockout": "~3.3.0-alpha",
     "knockout-projections": "~1.1.0",
-    "aws-sdk-js": "~2.2.33"
+    "aws-sdk-js": "~2.2.33",
+    "eclipse-paho-mqtt-js": "~1.0.1"
   },
   "resolutions": {
     "knockout": "~3.3.0-alpha"
