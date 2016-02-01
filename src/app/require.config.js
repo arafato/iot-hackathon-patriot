@@ -10,7 +10,8 @@ var require = {
         "knockout-projections": "bower_modules/knockout-projections/dist/knockout-projections",
         "signals":              "bower_modules/js-signals/dist/signals.min",
         "text":                 "bower_modules/requirejs-text/text",
-        "aws-sdk":              "bower_modules/aws-sdk-js/dist/aws-sdk.min"
+        "aws-sdk":              "bower_modules/aws-sdk-js/dist/aws-sdk.min",
+        "mqtt":                 "bower_modules/eclipse-paho-mqtt-js/src/mqttws31"
     },
     shim: {
         "bootstrap": { deps: ["jquery"] }

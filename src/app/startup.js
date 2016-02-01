@@ -2,7 +2,8 @@ import AWS from 'aws-sdk';
 import 'jquery';
 import 'bootstrap';
 import ko from 'knockout';
-import 'knockout-projections'
+import 'knockout-projections';
+import 'mqtt';
 import * as router from './router';
 
 // Components can be packaged as AMD modules, such as the following:
