@@ -15,13 +15,13 @@ class HomeViewModel {
         AWS.config.credentials = new AWS.CognitoIdentityCredentials({
             IdentityPoolId: 'eu-west-1:a0c69b71-85c9-4ed5-8248-fcf7c31ca848'
         });
-        var iotgatewayhost = 'a3h63fg5mi6r80.iot.eu-west-1.amazonaws.com/';
+        var iotgatewayhost = 'A3H63FG5MI6R80.iot.eu-west-1.amazonaws.com';
 
         AWS.config.credentials.get(() => {
 
             var requestUrl = this.prepareWebsocketUrl({ host: iotgatewayhost, region: AWS.config.region, debug: false }, AWS.config.credentials.accessKeyId, AWS.config.credentials.secretAccessKey, AWS.config.credentials.sessionToken);
 
-            var client = new Paho.MQTT.Client(requestUrl, '$aws/things/winerack/shadow/update');
+            var client = new Paho.MQTT.Client(requestUrl, 'winerack');
 
             client.onMessageArrived = function (message) {
                 console.log("msg inbound: topic: " + message.destinationName + ' payload: ' + message.payloadString);
@@ -32,7 +32,26 @@ class HomeViewModel {
             client.onConnectionLost = function (err) {
                 console.log("lost connection: error code:" + err.errorCode + ' error message: ' + err.errorMessage);
             }
+
+            client.connect({
+                onSuccess: function () {
+                    if (AWS && AWS.config && AWS.config.credentials && AWS.config.credentials.identityId) {
+                        console.log('connected with ' + AWS.config.credentials.identityId + ' to ' + iotgatewayhost);
+                    } else {
+                        console.log('connected to ' + iotgatewayhost);
+                    }
+                    this.sub('$aws/things/winerack/shadow/update');
+                },
+                useSSL: true,
+                timeout: 3,
+                mqttVersion: 4,
+                onFailure: function () {
+                    console.log('failed to connect');
+                }
+            });
+
         });
+
     }
 
     getProduct(url) {
