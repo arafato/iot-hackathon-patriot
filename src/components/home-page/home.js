@@ -1,6 +1,8 @@
 import ko from 'knockout';
 import homeTemplate from 'text!./home.html';
 
+var URL_BASE="http://"
+
 class HomeViewModel {
     constructor(route) {
         this.message = ko.observable('Welcome to iot-hackathon!');
@@ -14,6 +16,14 @@ class HomeViewModel {
         this.product_image_url('https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcRYP1k0bHJwXyVpXn5d1PzHWHtcfjAOUt5hGWxFW91W9d18IXgJ');
         this.product_name('Happy Whine');
         this.product_description('If you whine a lot then you will love Happy Whine.  It pairs well with peanuts and orange juice')
+    }
+
+    getProduct(url){
+        $.get(url, function( data ) {
+          this.product_name(data.product_name);
+          this.product_image_url(data.product_image_url);
+          this.product_description(data.product_description);
+        });
     }
 }
 
