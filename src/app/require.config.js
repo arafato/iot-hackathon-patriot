@@ -11,7 +11,7 @@ var require = {
         "signals":              "bower_modules/js-signals/dist/signals.min",
         "text":                 "bower_modules/requirejs-text/text",
         "aws-sdk":              "bower_modules/aws-sdk-js/dist/aws-sdk.min",
-        "mqtt":                 "bower_modules/eclipse-paho-mqtt-js/src/mqttws31"
+        "mqtt":                 "bower_modules/eclipse-paho-mqtt-js/src/mqttws31",
     },
     shim: {
         "bootstrap": { deps: ["jquery"] }
