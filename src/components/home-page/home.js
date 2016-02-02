@@ -54,12 +54,15 @@ class HomeViewModel {
 
     }
 
-    getProduct(id) {
+    getProduct() {
+        var id = Math.floor((Math.random() * 5) + 1);
+        console.log('id=' + id)
         var url = URL_BASE + id;
+        var that = this;
         $.get(url, function (data) {
-            this.product_name(data.product_name);
-            this.product_image_url(data.product_image_url);
-            this.product_description(data.product_description);
+            that.product_name(data.Item.product_name);
+            that.product_image_url(data.Item.product_image_url);
+            that.product_description(data.Item.product_description);
         });
     }
 
