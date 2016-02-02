@@ -2,7 +2,7 @@
 import ko from 'knockout';
 import homeTemplate from 'text!./home.html';
 
-var URL_BASE = "http://"
+var URL_BASE = "https://iipm8dip2k.execute-api.eu-west-1.amazonaws.com/latest/getAnnataProduct?product_sku="
 
 class HomeViewModel {
     constructor(route) {
@@ -54,7 +54,8 @@ class HomeViewModel {
 
     }
 
-    getProduct(url) {
+    getProduct(id) {
+        var url = URL_BASE + id;
         $.get(url, function (data) {
             this.product_name(data.product_name);
             this.product_image_url(data.product_image_url);
@@ -69,7 +70,7 @@ class HomeViewModel {
         this.product_name('Happy Whine');
         this.product_description('If you whine a lot then you will love Happy Whine.  It pairs well with peanuts and orange juice')
     }
-        
+
     // PRIVATE ///////////////////
     prepareWebsocketUrl(options, awsAccessId, awsSecretKey, sessionToken) {
         var now = this.getDateTimeString();
